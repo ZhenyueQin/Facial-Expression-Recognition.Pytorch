@@ -2,6 +2,6 @@ import subprocess
 
 # subprocess.run(['python', 'visualize.py'])
 
-subprocess.run(['python', 'plot_fer2013_confusion_matrix.py', '--model', 'VGG19', '--split', 'PrivateTest'])
+subprocess.call(['python', 'mainpro_FER.py', '--model VGG19', '--bs', '128', '--lr', '0.01'])
 
 # subprocess.run(['python', 'preprocess_fer2013.py'])
