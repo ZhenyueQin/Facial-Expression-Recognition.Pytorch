@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:1
 #SBATCH --job­name="test"
-#SBATCH --time=1:00:00
+#SBATCH --time=3:00:00
 #SBATCH --mem=32GB
 module load cuda/9.0.176
 #module load cudnn/v5.1
