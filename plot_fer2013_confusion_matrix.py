@@ -80,6 +80,7 @@ elif opt.model  == 'Resnet18':
 
 path = os.path.join(opt.dataset + '_' + opt.model)
 checkpoint = torch.load(os.path.join(path, opt.split + '_model.t7'))
+print('where is checkpoint: ', checkpoint)
 
 net.load_state_dict(checkpoint['net'])
 net.cuda()
