@@ -114,6 +114,7 @@ print("accuracy: %0.3f" % acc)
 
 # Compute confusion matrix
 matrix = confusion_matrix(all_targets.data.cpu().numpy(), all_predicted.cpu().numpy())
+print('confusion matrix: ', matrix)
 np.set_printoptions(precision=2)
 
 # Plot normalized confusion matrix
