@@ -75,7 +75,7 @@ correct = 0
 total = 0
 all_target = []
 
-for i in xrange(10):
+for i in range(10):
     print("%d fold" % (i+1))
     path = os.path.join(opt.dataset + '_' + opt.model,  '%d' %(i+1))
     checkpoint = torch.load(os.path.join(path, 'Test_model.t7'))
@@ -109,6 +109,7 @@ for i in xrange(10):
 
 # Compute confusion matrix
 matrix = confusion_matrix(all_targets.data.cpu().numpy(), all_predicted.cpu().numpy())
+print('confusion matrix: ', matrix)
 np.set_printoptions(precision=2)
 
 # Plot normalized confusion matrix

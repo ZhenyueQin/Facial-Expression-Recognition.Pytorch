@@ -80,6 +80,7 @@ elif opt.model  == 'Resnet18':
 
 path = os.path.join(opt.dataset + '_' + opt.model)
 checkpoint = torch.load(os.path.join(path, opt.split + '_model.t7'))
+print('where is checkpoint: ', os.path.join(path, opt.split + '_model.t7'))
 
 net.load_state_dict(checkpoint['net'])
 net.cuda()
@@ -114,6 +115,7 @@ print("accuracy: %0.3f" % acc)
 
 # Compute confusion matrix
 matrix = confusion_matrix(all_targets.data.cpu().numpy(), all_predicted.cpu().numpy())
+print('confusion matrix: ', matrix)
 np.set_printoptions(precision=2)
 
 # Plot normalized confusion matrix
