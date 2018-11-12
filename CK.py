@@ -79,7 +79,7 @@ class CK(data.Dataset):
         if self.split == 'Training':
             img_data, img_saliency, target = self.train_data_face[index], self.train_data_saliency[index], self.train_labels[index]
         elif self.split == 'Testing':
-            img_data, img_saliency, target = self.test_data_face[index], self.test_data_saliency, self.test_labels[index]
+            img_data, img_saliency, target = self.test_data_face[index], self.test_data_saliency[index], self.test_labels[index]
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
         if np.newaxis is not None:
