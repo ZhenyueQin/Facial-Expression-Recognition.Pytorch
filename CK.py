@@ -94,6 +94,7 @@ class CK(data.Dataset):
                 img_saliency = self.transform(img_saliency)
             return img_data, img_saliency, target
         except TypeError:
+            print('encounter TypeError')
             print('np.newaxis in type error: ', np.newaxis)
 
     def __len__(self):
