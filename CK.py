@@ -16,7 +16,7 @@ class CK(data.Dataset):
 
         there are 135,177,75,207,84,249,54 images in data
         we choose 123,159,66,186,75,225,48 images for training
-        we choose 12,8,9,21,9,24,6 images for testing
+        we choose 12,18,9,21,9,24,6 images for testing
         the split are in order according to the fold number
     """
 
@@ -82,6 +82,8 @@ class CK(data.Dataset):
             img_data, img_saliency, target = self.test_data_face[index], self.test_data_saliency, self.test_labels[index]
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
+        if np.newaxis is not None:
+            print(np.newaxis)
         img_data, img_saliency = img_data[:, :, np.newaxis], img_saliency[:, :, np.newaxis]
         img_data, img_saliency = np.concatenate((img_data, img_data, img_data), axis=2), \
                                  np.concatenate((img_saliency, img_saliency, img_saliency), axis=2)
