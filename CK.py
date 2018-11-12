@@ -83,7 +83,7 @@ class CK(data.Dataset):
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
         if np.newaxis is not None:
-            print(np.newaxis)
+            print('np.newaxis: ', np.newaxis)
         img_data, img_saliency = img_data[:, :, np.newaxis], img_saliency[:, :, np.newaxis]
         img_data, img_saliency = np.concatenate((img_data, img_data, img_data), axis=2), \
                                  np.concatenate((img_saliency, img_saliency, img_saliency), axis=2)
