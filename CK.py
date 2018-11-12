@@ -82,6 +82,8 @@ class CK(data.Dataset):
             img_data, img_saliency, target = self.test_data_face[index], self.test_data_saliency, self.test_labels[index]
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
+        if np.newaxis is not None:
+            print(np.newaxis)
         img_data, img_saliency = img_data[:, :, np.newaxis], img_saliency[:, :, np.newaxis]
         img_data, img_saliency = np.concatenate((img_data, img_data, img_data), axis=2), \
                                  np.concatenate((img_saliency, img_saliency, img_saliency), axis=2)
