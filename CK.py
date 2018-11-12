@@ -82,20 +82,17 @@ class CK(data.Dataset):
             img_data, img_saliency, target = self.test_data_face[index], self.test_data_saliency, self.test_labels[index]
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
-        try:
-            if np.newaxis is not None:
-                print('np.newaxis: ', np.newaxis)
-            img_data, img_saliency = img_data[:, :, np.newaxis], img_saliency[:, :, np.newaxis]
-            img_data, img_saliency = np.concatenate((img_data, img_data, img_data), axis=2), \
-                                     np.concatenate((img_saliency, img_saliency, img_saliency), axis=2)
-            img_data, img_saliency = Image.fromarray(img_data), Image.fromarray(img_saliency)
-            if self.transform is not None:
-                img_data = self.transform(img_data)
-                img_saliency = self.transform(img_saliency)
-            return img_data, img_saliency, target
-        except TypeError:
-            print('encounter TypeError')
-            print('np.newaxis in type error: ', np.newaxis)
+        if np.newaxis is not None:
+            print('np.newaxis: ', np.newaxis)
+
+        img_data, img_saliency = img_data[:, :, np.newaxis], img_saliency[:, :, np.newaxis]
+        img_data, img_saliency = np.concatenate((img_data, img_data, img_data), axis=2), \
+                                 np.concatenate((img_saliency, img_saliency, img_saliency), axis=2)
+        img_data, img_saliency = Image.fromarray(img_data), Image.fromarray(img_saliency)
+        if self.transform is not None:
+            img_data = self.transform(img_data)
+            img_saliency = self.transform(img_saliency)
+        return img_data, img_saliency, target
 
     def __len__(self):
         if self.split == 'Training':
