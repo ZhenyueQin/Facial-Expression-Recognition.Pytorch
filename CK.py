@@ -16,7 +16,7 @@ class CK(data.Dataset):
 
         there are 135,177,75,207,84,249,54 images in data
         we choose 123,159,66,186,75,225,48 images for training
-        we choose 12,8,9,21,9,24,6 images for testing
+        we choose 12,18,9,21,9,24,6 images for testing
         the split are in order according to the fold number
     """
 
