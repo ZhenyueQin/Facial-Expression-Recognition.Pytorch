@@ -2,7 +2,7 @@ import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 
-filename = 'data/data.h5'
+filename = 'data/CK_data_saliency.h5'
 f = h5py.File(filename, 'r')
 
 # List all groups
@@ -14,7 +14,7 @@ print("Keys: %s" % list(f.keys()))
 #
 # print('data: ', data)
 
-public_test_pixel = f['PublicTest_pixel']
+public_test_pixel = f['data_pixel']
 
 # print(public_test_pixel[0])
 

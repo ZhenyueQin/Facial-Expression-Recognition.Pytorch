@@ -17,14 +17,25 @@ class VGG(nn.Module):
     def __init__(self, vgg_name):
         super(VGG, self).__init__()
         self.features = self._make_layers(cfg[vgg_name])
-        self.classifier = nn.Linear(512, 7)
+        self.classifier = nn.Linear(1024, 7)
 
-    def forward(self, x):
-        out = self.features(x)
-        out = out.view(out.size(0), -1)
-        out = F.dropout(out, p=0.5, training=self.training)
-        out = self.classifier(out)
-        return out
+    def forward(self, x, y=None):
+        if y is None:
+            out = self.features(x)
+            out = out.view(out.size(0), -1)
+            print('after view shape: ', out.shape)
+            out = F.dropout(out, p=0.5, training=self.training)
+            out = self.classifier(out)
+            return out
+        else:
+            print('two input forward')
+            out_x = self.features(x)
+            out_y = self.features(y)
+            out = torch.cat((out_x, out_y), 1)
+            out = out.view(out.size(0), -1)
+            out = F.dropout(out, p=0.5, training=self.training)
+            out = self.classifier(out)
+            return out
 
     def _make_layers(self, cfg):
         layers = []
