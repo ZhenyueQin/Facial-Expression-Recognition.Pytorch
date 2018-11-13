@@ -120,8 +120,9 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        utils.progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+        print(batch_idx, len(trainloader), 'This is Training, Loss: %.3f | Acc: %.3f%% (%d/%d)'
                            % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+
 
     Train_acc = 100. * correct / total
 
@@ -153,8 +154,8 @@ def test(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        utils.progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                           % (PrivateTest_loss / (batch_idx + 1), 100. * correct / total, correct, total))
+        print(utils.progress_bar(batch_idx, len(testloader), 'This is Test, Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                           % (PrivateTest_loss / (batch_idx + 1), 100. * correct / total, correct, total)))
     # Save checkpoint.
     Test_acc = 100. * correct / total
 
