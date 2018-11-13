@@ -247,7 +247,7 @@ class RandomCrop(object):
 
     def __init__(self, size, padding=0):
         if isinstance(size, numbers.Number):
-            self.size = (int(size), int(size))
+            self.size = (int(size), int(size)*2)
         else:
             self.size = size
         self.padding = padding
@@ -464,7 +464,7 @@ class TenCrop(object):
     def __init__(self, size, vertical_flip=False):
         self.size = size
         if isinstance(size, numbers.Number):
-            self.size = (int(size), int(size))
+            self.size = (int(size), int(size)*2)
         else:
             assert len(size) == 2, "Please provide only two dimensions (h, w) for size."
             self.size = size
