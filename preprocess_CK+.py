@@ -8,7 +8,7 @@ import numpy as np
 import h5py
 import skimage.io
 
-ck_path = 'CK+48'
+ck_path = 'CK+combined'
 
 anger_path = os.path.join(ck_path, 'anger')
 disgust_path = os.path.join(ck_path, 'disgust')
@@ -22,7 +22,7 @@ contempt_path = os.path.join(ck_path, 'contempt')
 data_x = []
 data_y = []
 
-datapath = os.path.join('data','CK_data.h5')
+datapath = os.path.join('data','CK_combined.h5')
 if not os.path.exists(os.path.dirname(datapath)):
     os.makedirs(os.path.dirname(datapath))
 
