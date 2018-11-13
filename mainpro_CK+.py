@@ -37,7 +37,7 @@ learning_rate_decay_every = 1  # 5
 learning_rate_decay_rate = 0.8  # 0.9
 
 cut_size = 44
-total_epoch = 60
+total_epoch = 600
 
 path = os.path.join(opt.dataset + '_' + opt.model, str(opt.fold))
 
