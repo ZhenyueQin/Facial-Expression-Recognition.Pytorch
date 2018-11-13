@@ -154,8 +154,8 @@ def test(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        print(utils.progress_bar(batch_idx, len(testloader), 'This is Test, Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                           % (PrivateTest_loss / (batch_idx + 1), 100. * correct / total, correct, total)))
+        print(batch_idx, len(testloader), 'This is Testing, Loss: %.3f | Acc: %.3f%% (%d/%d)'
+              % (testloader / (batch_idx + 1), 100. * correct / total, correct, total))
     # Save checkpoint.
     Test_acc = 100. * correct / total
 
