@@ -36,7 +36,7 @@ learning_rate_decay_start = 20  # 50
 learning_rate_decay_every = 1  # 5
 learning_rate_decay_rate = 0.8  # 0.9
 
-cut_size = 48
+cut_size = 46
 total_epoch = 100
 
 path = os.path.join(opt.dataset + '_' + opt.model, str(opt.fold))
@@ -55,7 +55,7 @@ transform_test = transforms.Compose([
 ])
 
 trainset = CK(split='Training', fold=opt.fold, transform=transform_train)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=opt.bs, shuffle=True, num_workers=1)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=opt.bs, shuffle=False, num_workers=1)
 testset = CK(split='Testing', fold=opt.fold, transform=transform_test)
 testloader = torch.utils.data.DataLoader(testset, batch_size=5, shuffle=False, num_workers=1)
 
