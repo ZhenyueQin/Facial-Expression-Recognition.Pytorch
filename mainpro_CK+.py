@@ -36,8 +36,8 @@ learning_rate_decay_start = 20  # 50
 learning_rate_decay_every = 1  # 5
 learning_rate_decay_rate = 0.8  # 0.9
 
-cut_size = 44
-total_epoch = 600
+cut_size = 48
+total_epoch = 100
 
 path = os.path.join(opt.dataset + '_' + opt.model, str(opt.fold))
 
@@ -154,8 +154,8 @@ def test(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
 
-        print(batch_idx, len(testloader), 'This is Testing, Loss: %.3f | Acc: %.3f%% (%d/%d)'
-              % (testloader / (batch_idx + 1), 100. * correct / total, correct, total))
+        utils.progress_bar(batch_idx, len(testloader), 'Testing Loss: %.3f | Acc: %.3f%% (%d/%d)'
+                           % (PrivateTest_loss / (batch_idx + 1), 100. * correct / total, correct, total))
     # Save checkpoint.
     Test_acc = 100. * correct / total
 
