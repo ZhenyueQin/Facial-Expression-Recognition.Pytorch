@@ -44,8 +44,10 @@ path = os.path.join(opt.dataset + '_' + opt.model)
 # Data
 print('==> Preparing data..')
 transform_train = transforms.Compose([
-    transforms.RandomCrop(44),
+    transforms.RandomCrop(cut_size),
     transforms.RandomHorizontalFlip(),
+    # transforms.TenCrop(cut_size),
+    # transforms.Lambda(lambda crops: torch.stack([transforms.ToTensor()(crop) for crop in crops])),
     transforms.ToTensor(),
 ])
 
