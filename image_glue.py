@@ -28,13 +28,13 @@ def combine_images(imgs, save_path):
     # new_im.save(save_path)
 
 
-dir_name_1 = 'ck_prediction'
-dir_name_2 = 'CK+48'
-dir_name_3 = 'CK+combined_overlay'
+dir_name_1 = 'FER2013_prediction'
+dir_name_2 = 'FER2013'
+dir_name_3 = 'FER2013_combined_overlay'
 
 saliency_or_overlap = 'overlap_'
 
-for root, dirs, files in os.walk("ck_prediction"):
+for root, dirs, files in os.walk(dir_name_1):
     for file in files:
         if file.endswith(".png"):
             if saliency_or_overlap in file:

@@ -15,12 +15,12 @@ def square_overlay_images(path_1, path_2, save_path):
     cv2.imwrite(save_path, l_img)
 
 
-dir_name_1 = 'ck_prediction'
-dir_name_2 = 'CK+48'
-dir_name_3 = 'CK+squared_top_left'
+dir_name_1 = 'FER2013_prediction'
+dir_name_2 = 'FER2013'
+dir_name_3 = 'FER2013_squared_top_left'
 
 
-for root, dirs, files in os.walk("ck_prediction"):
+for root, dirs, files in os.walk(dir_name_1):
     for file in files:
         if file.endswith(".png"):
             if 'saliency_' in file:

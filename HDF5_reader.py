@@ -2,7 +2,7 @@ import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 
-filename = 'data/CK_combined_overlay_square.h5'
+filename = 'data/fer2013_data_top_left.h5'
 f = h5py.File(filename, 'r')
 
 # List all groups
@@ -14,7 +14,7 @@ print("Keys: %s" % list(f.keys()))
 #
 # print('data: ', data)
 
-public_test_pixel = f['data_pixel']
+public_test_pixel = f['PrivateTest_pixel']
 
 # print(public_test_pixel[0])
 

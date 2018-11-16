@@ -23,7 +23,7 @@ class VGG(nn.Module):
         if y is None:
             out = self.features(x)
             out = out.view(out.size(0), -1)
-            print('after view shape: ', out.shape)
+            # print('after view shape: ', out.shape)
             out = F.dropout(out, p=0.5, training=self.training)
             out = self.classifier(out)
             return out
