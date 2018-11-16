@@ -14,9 +14,9 @@ module load pytorch/0.4.0-py36-cuda90
 module load python/3.6.1
 module load torchvision/0.2.1-py36
 
-#python mainpro_FER.py --model VGG19 --bs 128 --lr 0.01
+python mainpro_FER.py --model VGG19 --bs 128 --lr 0.01
 #python mainpro_CK+.py --model VGG19 --bs 128 --lr 0.01 --fold 1
 
 #python plot_fer2013_confusion_matrix.py --model VGG19 --split PrivateTest
 
-python k_fold_train.py
+#python k_fold_train.py
