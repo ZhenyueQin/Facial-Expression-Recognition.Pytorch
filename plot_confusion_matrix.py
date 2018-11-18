@@ -38,9 +38,9 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
 
 
-class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Contempt']
 
-acc = 73.0
+acc = 72.0
 
 # Compute confusion matrix
 # private saliency
@@ -93,15 +93,64 @@ acc = 73.0
 # )
 
 # private original
+# matrix = np.array(
+#     [[302, 7, 51, 17, 59, 9, 46],
+#      [11, 39, 2, 1, 1, 1, 0],
+#      [47, 1, 297, 24, 79, 41, 39],
+#      [11, 0, 9, 812, 13, 19, 15],
+#      [49, 0, 68, 33, 346, 5, 93],
+#      [3, 0, 32, 16, 7, 352, 6],
+#      [31, 0, 35, 32, 75, 12, 441]]
+# )
+
+# ck_saliency_top_left
 matrix = np.array(
-    [[302, 7, 51, 17, 59, 9, 46],
-     [11, 39, 2, 1, 1, 1, 0],
-     [47, 1, 297, 24, 79, 41, 39],
-     [11, 0, 9, 812, 13, 19, 15],
-     [49, 0, 68, 33, 346, 5, 93],
-     [3, 0, 32, 16, 7, 352, 6],
-     [31, 0, 35, 32, 75, 12, 441]]
+    [[110, 3, 3, 0, 4, 0, 0, ],
+          [8, 168, 0, 0, 3, 0, 1, ],
+          [0, 3, 60, 3, 2, 7, 9, ],
+          [0, 0, 3, 213, 0, 0, 0, ],
+          [10, 0, 0, 0, 68, 6, 6, ],
+          [0, 0, 5, 0, 1, 233, 1, ],
+          [4, 0, 5, 0, 1, 0, 50]]
 )
+
+# fer2013_top_left_public
+# matrix = np.array(
+#     [[323, 4, 34, 17, 51, 6, 32],
+#      [14, 36, 0, 1, 4, 1, 0],
+#      [50, 0, 256, 8, 107, 24, 51],
+#      [22, 0, 7, 780, 21, 10, 55],
+#      [65, 0, 55, 22, 412, 4, 95],
+#      [11, 0, 30, 18, 11, 333, 12],
+#      [48, 0, 20, 38, 86, 3, 412]]
+# )
+
+# # fer2013_top_left private
+# matrix = np.array(
+#     [[286, 9, 51, 15, 76, 7, 47],
+#      [7, 41, 3, 2, 1, 0, 1],
+#      [42, 1, 264, 17, 107, 46, 51],
+#      [10, 0, 6, 798, 25, 17, 23],
+#      [34, 1, 36, 28, 397, 4, 94],
+#      [6, 0, 22, 16, 9, 354, 9],
+#      [24, 0, 14, 28, 99, 8, 453]]
+# )
+
+acc = 91.4
+a_tyep = 'ck+'
+
+if a_tyep == 'fer2013_public': 
+  class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+  save_path = 'fer2013_public_composition.png'
+  plot_title = 'FER2013 Public Test Composition Confusion Matrix (Accuracy: %0.1f%%)' % acc
+elif a_tyep == 'fer2013_private': 
+  class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+  save_path = 'fer2013_private_composition.png'
+  plot_title = 'FER2013 Private Test Composition Confusion Matrix (Accuracy: %0.1f%%)' % acc
+elif a_tyep == 'ck+': 
+  class_names = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Contempt']
+  save_path = 'ck+_composition.png'
+  plot_title = 'CK+ Composition Confusion Matrix (Accuracy: %0.1f%%)' % acc
 
 print('confusion matrix: ', matrix)
 np.set_printoptions(precision=2)
@@ -109,6 +158,6 @@ np.set_printoptions(precision=2)
 # Plot normalized confusion matrix
 plt.figure(figsize=(10, 8))
 plot_confusion_matrix(matrix, classes=class_names, normalize=True,
-                      title='FER2013 Private Test Confusion Matrix (Accuracy: %0.1f%%)' % acc)
-plt.savefig('fer2013_private_original.png')
+                      title=plot_title)
+plt.savefig(save_path)
 plt.close()
