@@ -35,7 +35,7 @@ class CK(data.Dataset):
 
         for j in range(len(test_number)):
             for k in range(test_number[j]):
-                if self.fold != 10: #the last fold start from the last element
+                if self.fold != 30: #the last fold start from the last element
                     test_index.append(sum_number[j]+(self.fold-1)*test_number[j]+k)
                 else:
                     test_index.append(sum_number[j+1]-1-k)
