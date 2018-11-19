@@ -2,7 +2,7 @@ import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 
-filename = 'data/CK_original.h5'
+filename = 'data/CK_data_overlay.h5'
 f = h5py.File(filename, 'r')
 
 # List all groups

@@ -24,7 +24,7 @@ class CK(data.Dataset):
         self.transform = transform
         self.split = split  # training set or test set
         self.fold = fold # the k-fold cross validation
-        self.data = h5py.File('./data/CK_original.h5', 'r', driver='core')
+        self.data = h5py.File('./data/CK_combined_overlay_square.h5', 'r', driver='core')
 
         number = len(self.data['data_label']) #981
         sum_number = [0,135,312,387,594,678,927,981] # the sum of class number
@@ -35,7 +35,7 @@ class CK(data.Dataset):
 
         for j in range(len(test_number)):
             for k in range(test_number[j]):
-                if self.fold != 10: #the last fold start from the last element
+                if self.fold != 30: #the last fold start from the last element
                     test_index.append(sum_number[j]+(self.fold-1)*test_number[j]+k)
                 else:
                     test_index.append(sum_number[j+1]-1-k)

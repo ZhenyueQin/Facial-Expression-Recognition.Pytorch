@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-#scp mainpro_FER.py liu162@bracewell.hpc.csiro.au:/home/liu162/Project-Guanyin-Eye-Fixation/mainpro_FER.py
+scp CK.py liu162@bracewell.hpc.csiro.au:/home/liu162/Project-Guanyin-Eye-Fixation/CK.py
 
-scp liu162@bracewell.hpc.csiro.au:/home/liu162/Project-Guanyin-Eye-Fixation/*.out outs/
+#scp liu162@bracewell.hpc.csiro.au:/home/liu162/Project-Guanyin-Eye-Fixation/*.out outs/
